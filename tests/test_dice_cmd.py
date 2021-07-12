@@ -9,4 +9,5 @@ def test_number_generation():
 
     for i in range(1000):       # Test 1000 times because the rolling num result will differ every time,
                                 # we want to be absolutely certain that it is generating the correct numbers
-        assert dice_cmd.roll_dice() >= 1 and dice_cmd.roll_dice() <= 6
+        rolled_num = dice_cmd.roll_dice()
+        assert rolled_num >= 1 and rolled_num <= 6
