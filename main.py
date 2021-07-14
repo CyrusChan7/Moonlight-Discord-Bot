@@ -7,6 +7,7 @@ from bot_commands import filetype_cmd
 from bot_commands import ctf_cmd
 from bot_commands import ftc_cmd
 from bot_commands import covid_cmd
+from bot_commands import convert_cmd
 
 
 # ===== Bot setup/startup =====
@@ -65,6 +66,13 @@ async def covid(ctx, country_name):
         await ctx.send(embed=embed)
     except:
         await ctx.send("```Error. Example of proper usage:\n\n%covid canada```")
+
+# -----
+
+@client.command(name="convert")
+async def convert(ctx, amount_of_dollars, current_currency, desired_currency):
+    response = convert_cmd.convert_to_currency(amount_of_dollars, current_currency, desired_currency)
+    await ctx.send(response)
 
 # ===== =====
 
