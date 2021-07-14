@@ -4,6 +4,7 @@ import os
 
 from bot_commands import dice_cmd
 from bot_commands import filetype_cmd
+from bot_commands import ctf_cmd
 
 
 # ===== Bot setup/startup =====
@@ -26,6 +27,14 @@ async def dice(ctx):
 async def filetype(ctx, filetype_user_input):
     response = filetype_cmd.display_file_information(filetype_user_input)
     await ctx.send(response)
+
+# -----
+
+@client.command(name="ctf")
+async def ctf(ctx, celsius_number):
+    response = ctf_cmd.convert_celsius_to_fahrenheit(celsius_number)
+    await ctx.send(response)
+
 # ===== =====
 
 
