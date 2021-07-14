@@ -5,6 +5,7 @@ import os
 from bot_commands import dice_cmd
 from bot_commands import filetype_cmd
 from bot_commands import ctf_cmd
+from bot_commands import ftc_cmd
 
 
 # ===== Bot setup/startup =====
@@ -33,6 +34,13 @@ async def filetype(ctx, filetype_user_input):
 @client.command(name="ctf")
 async def ctf(ctx, celsius_number):
     response = ctf_cmd.convert_celsius_to_fahrenheit(celsius_number)
+    await ctx.send(response)
+
+# -----
+
+@client.command(name="ftc")
+async def ftc(ctx, fahrenheit_number):
+    response = ftc_cmd.convert_fahrenheit_to_celsius(fahrenheit_number)
     await ctx.send(response)
 
 # ===== =====
