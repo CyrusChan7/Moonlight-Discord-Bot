@@ -86,6 +86,13 @@ async def convert(ctx, amount_of_dollars, current_currency, desired_currency):
     response = convert_cmd.convert_to_currency(amount_of_dollars, current_currency, desired_currency)
     await ctx.send(response)
 
+# -----
+
+@client.command(name="avatar")          # Code referenced from https://stackoverflow.com/questions/59799987/how-to-get-a-users-avatar-with-their-id-in-discord-py
+async def avatar(ctx, member_avatar : discord.Member):
+    user_avatar_url = member_avatar.avatar_url
+    await ctx.send(user_avatar_url)
+
 # ===== =====
 
 
