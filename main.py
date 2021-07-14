@@ -6,6 +6,7 @@ from bot_commands import dice_cmd
 from bot_commands import filetype_cmd
 from bot_commands import ctf_cmd
 from bot_commands import ftc_cmd
+from bot_commands import covid_cmd
 
 
 # ===== Bot setup/startup =====
@@ -42,6 +43,28 @@ async def ctf(ctx, celsius_number):
 async def ftc(ctx, fahrenheit_number):
     response = ftc_cmd.convert_fahrenheit_to_celsius(fahrenheit_number)
     await ctx.send(response)
+
+# -----
+
+@client.command(name="covid")
+async def covid(ctx, country_name):
+    try:
+        returned_country_name, cases, deaths, recoveries, fatality_percent, last_updated = covid_cmd.webscrape_coronavirus_data(country_name)
+
+        embed = discord.Embed(title="Coronavirus Statistics for " + returned_country_name,
+                              description="Global Graph: https://www.worldometers.info/coronavirus/",
+                              color=discord.Color.blue()
+                              )
+
+        embed.add_field(name="Cases:", value=cases, inline=True)            # Discord.py embed formatting
+        embed.add_field(name="Deaths:", value=deaths, inline=True)
+        embed.add_field(name="Recoveries:", value=recoveries, inline=True)
+        embed.add_field(name="Fatality:", value=fatality_percent, inline=True)
+        embed.add_field(name="Last Updated:", value=last_updated, inline=True)
+
+        await ctx.send(embed=embed)
+    except:
+        await ctx.send("```Error. Example of proper usage:\n\n%covid canada```")
 
 # ===== =====
 
