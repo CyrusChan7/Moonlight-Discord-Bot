@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import os
+import asyncio
 
 from bot_commands import dice_cmd
 from bot_commands import filetype_cmd
@@ -17,6 +18,17 @@ async def on_ready():
     print("Bot is now ready.")
 # ===== =====
 
+# ===== Bot activity status =====
+bot_statuses = ["Type %help to get started", "Type %help to get started"]       # Sometimes the Discord bot goes offline for several seconds then comes back
+                                                                                # online losing its activity status, this line circumvents the issue
+async def bot_presence_cycle():
+    await client.wait_until_ready()
+
+    while not client.is_closed():
+        for i in range(len(bot_statuses)):
+            await client.change_presence(activity=discord.Game(bot_statuses[i]))
+            await asyncio.sleep(10)
+# ===== =====
 
 # ===== Commands =====
 @client.command(name="dice")
@@ -77,4 +89,5 @@ async def convert(ctx, amount_of_dollars, current_currency, desired_currency):
 # ===== =====
 
 
+client.loop.create_task(bot_presence_cycle())
 client.run(os.environ["BOT_TOKEN_HOST"])
