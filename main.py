@@ -93,6 +93,20 @@ async def avatar(ctx, member_avatar : discord.Member):
     user_avatar_url = member_avatar.avatar_url
     await ctx.send(user_avatar_url)
 
+@avatar.error
+async def avatar_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("```Error. Example of proper usage:\n\n%avatar @username```")
+
+# -----
+
+@client.command()
+@commands.has_permissions(manage_messages=True)
+async def clear(ctx, amount=10):
+   await ctx.channel.purge(limit=amount)                                     
+   await ctx.send(f"Successfully deleted {amount} messages. Note: You need 'Manage Messages' "
+                  f"permission to use this command.")
+
 # ===== =====
 
 
