@@ -1,1 +1,3 @@
-# Discord-Bot
+# Discord-Bot  
+  
+![Unit tests](https://github.com/github/docs/actions/workflows/python-app.yml/badge.svg)
