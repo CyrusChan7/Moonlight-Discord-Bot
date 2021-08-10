@@ -16,17 +16,17 @@
   
 `%clear` - Remove a specified amount of Discord messages in a channel.
   
-`%convert`  - Display real-time exchange rates between two real-world currencies.  
+`%convert`  - Display real time exchange rates between two real-world currencies.  
     
-`%coronavirus` - Display real-time COVID-19 statistics of a region.
+`%coronavirus` - Display real time COVID-19 statistics of a region.
 
-`%ctf` - Convert between Celsius and Fahrenheit.  
+`%ctf` - Convert from Celsius to Fahrenheit.  
   
 `%dice` - Roll a 6-sided fair die.  
   
 `%filetype` - Display information about extensions attached to the end of files.
 
-`%ftc` - Convert between Fahrenheit and Celsius.  
+`%ftc` - Convert from Fahrenheit to Celsius.  
   
 `%help` - Display an aggregate list of all the commands.
   
