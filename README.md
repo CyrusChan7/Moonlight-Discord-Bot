@@ -28,7 +28,21 @@
 
 `%ftc` - Convert from Fahrenheit to Celsius.  
   
-`%help` - Display an aggregate list of all the commands.
+`%help` - Display an aggregate list of all the commands.  
+  
+### How to host this Discord bot yourself  
+  
+1. Create or login to your existing Discord account.  
+2. Go to `https://discord.com/developers/applications`, then click `New Application`.  
+3. Enter any name of your choice then click `Create`.  
+4. Select `Bot`, then under `Build-A-Bot` click `Add Bot`.  
+5. Reveal the token and copy it.  
+6. Open `Environmental Variables` options panel in your Operating System.   
+7. Create a new user variable — with the variable name of `BOT_TOKEN_HOST`, and with the token value that you have copied in step 5. Remember to save the changes and restart your IDE to load the new env configuration.
+8. Install Python3 and the pip library requirements in `requirements.txt`.  
+9. Run `main.py`. (As long as the `main.py` file is running, the bot will continue responding to all the commands listed above.) 
+10. (Optional) Host these files to a dedicated server if you would like the Discord bot to run 24/7.
+11. You're finished. Congratulations!  
   
 ### License  
   
