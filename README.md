@@ -18,7 +18,7 @@
   
 `%convert`  - Display real time exchange rates between two real-world currencies.  
     
-`%coronavirus` - Display real time COVID-19 statistics of a region.
+`%covid` - Display real time COVID-19 statistics of a region.
 
 `%ctf` - Convert from Celsius to Fahrenheit.  
   
